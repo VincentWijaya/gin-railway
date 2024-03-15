@@ -1,13 +1,24 @@
 package handler
 
 import (
+	"gin-railway/service"
 	"net/http"
 	"strconv"
 
 	"github.com/gin-gonic/gin"
 )
 
-func (h *Handler) FindOneProduct(ctx *gin.Context) {
+type ProductHandler struct {
+	productService *service.ProductService
+}
+
+func NewProductHandler(productService *service.ProductService) *ProductHandler {
+	return &ProductHandler{
+		productService: productService,
+	}
+}
+
+func (h *ProductHandler) FindOneProduct(ctx *gin.Context) {
 	idStr := ctx.Param("id")
 
 	id, err := strconv.Atoi(idStr)
