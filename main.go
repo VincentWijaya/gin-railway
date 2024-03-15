@@ -26,5 +26,5 @@ func main() {
 
 	r.GET("/product/:id", productHandler.FindOneProduct)
 
-	r.Run(os.Getenv("PORT"))
+	r.Run(":" + os.Getenv("PORT"))
 }
