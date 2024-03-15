@@ -5,6 +5,7 @@ import (
 	"gin-railway/handler"
 	"gin-railway/repository"
 	"gin-railway/service"
+	"os"
 
 	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
@@ -25,5 +26,5 @@ func main() {
 
 	r.GET("/product/:id", productHandler.FindOneProduct)
 
-	r.Run(":8080")
+	r.Run(os.Getenv("PORT"))
 }
