@@ -9,8 +9,8 @@ import (
 )
 
 type Postgres struct {
-	db  *gorm.DB
-	err error
+	DB  *gorm.DB
+	Err error
 }
 
 func NewPostgres() *Postgres {
@@ -21,7 +21,7 @@ func NewPostgres() *Postgres {
 	db, err := gorm.Open(postgres.Open(dsn), nil)
 
 	return &Postgres{
-		db:  db,
-		err: err,
+		DB:  db,
+		Err: err,
 	}
 }
